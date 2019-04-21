@@ -1,0 +1,46 @@
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+.contentImage{
+     display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.titleImage{
+     display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto%;
+  object-fit: contain;
+}
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .contentImage{
+     display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.titleImage{
+     display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+
+}

@@ -1,0 +1,53 @@
+ <div class="featured">
+            <div *ngFor ="let post of getFeaturedPosts">
+                    <div *ngIf="post.mostFeaturedPost == 'yes'" class="featured__column featured__column--big">
+                        <div class="entry" 
+
+                         [ngStyle]="{ 'background-image': 'url(' + post.imageSrc + ')'}">
+
+                            <div class="entry__content">
+                                <span class="entry__category"><a style = "margin-left: 10px;" *ngFor = "let tag of post.categories" >{{tag}}</a></span>
+
+                                <h1><a routerLink="/blogDetails" [queryParams]="{ id: post.uniqueBlogName}" title="">{{post.title}}</a></h1>
+
+                                <div class="entry__info">
+                                    <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="{{post.authorImage}}" alt="">
+                                    </a>
+
+                                    <ul class="entry__meta">
+                                        <li><a href="#0">{{post.authorName}}</a></li>
+                                        <li>{{post.postedDate}}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- end entry__content -->
+                            
+                        </div> <!-- end entry -->
+                    </div> <!-- end featured__big -->
+
+                    <div *ngIf="post.featuredPost == 'yes'" class="featured__column featured__column--small">
+
+                        <div class="entry"  [ngStyle]="{ 'background-image': 'url(' + post.imageSrc + ')'}">
+                            
+                            <div class="entry__content">
+                                <span class="entry__category"><a style = "margin-left: 10px;" *ngFor = "let tag of post.categories">{{tag}}</a></span>
+
+                                <h1><a routerLink="/blogDetails" [queryParams]="{ id: post.uniqueBlogName}" title="">{{post.title}}</a></h1>
+
+                                <div class="entry__info">
+                                    <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="{{post.authorImage}}" alt="">
+                                    </a>
+
+                                    <ul class="entry__meta">
+                                        <li><a href="#0">{{post.authorName}}</a></li>
+                                        <li>{{post.postedDate}}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- end entry__content -->
+                          
+                        </div> <!-- end entry -->
+
+                    </div> <!-- end featured__small -->
+            </div> <!-- end *ngFor -->
+                </div> <!-- end featured -->

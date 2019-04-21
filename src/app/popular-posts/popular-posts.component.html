@@ -1,0 +1,44 @@
+ <div class="row top">
+
+            <div class="col-eight md-six tab-full popular">
+                <h3>Popular Posts</h3>
+
+                <div class="block-1-2 block-m-full popular__posts">
+                    <article *ngFor = "let post of getPopularposts" class="col-block popular__post">
+                        <a href="#0" class="popular__thumb">
+                            <img src="{{post.imageSrc}}" alt="">
+                        </a>
+                        <h5><a href="#0">{{post.title}}</a></h5>
+                        <section class="popular__meta">
+                                <span class="popular__author"><span>By</span> <a href="#0"> {{post.authorName}} </a></span>
+                            <span class="popular__date"><span>on </span> <time datetime="2017-12-19">{{post.postedDate}}</time></span>
+                        </section>
+                    </article>
+                </div> <!-- end popular_posts -->
+            </div> <!-- end popular -->
+            
+            <div class="col-four md-six tab-full about">
+                <h3>About Popcorn Blogs</h3>
+
+                <p>
+               Popcorn Blogs is a place for explorers. Together we seek out the most fascinating and rare gems of human knowledge. We write, we read, we learn—and in the process, we have fun. Every day we publish three or more amazing lists packed with as many new facts as possible. You will always leave Popcorn Blogs smarter than when you arrived. 
+                </p>
+            
+
+                <ul class="about__social">
+                    <li>
+                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
+                </ul> <!-- end header__social -->
+            </div> <!-- end about -->
+
+        </div> <!-- end row -->

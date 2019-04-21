@@ -1,0 +1,54 @@
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home" *ngIf="router.url == '/home' || router.url == '/top'">
+
+      <app-header></app-header>
+
+
+        <div class="pageheader-content row" >
+            <div class="col-full">
+
+              <app-featured-posts></app-featured-posts>
+               
+            </div> <!-- end col-full -->
+        </div> <!-- end pageheader-content row -->
+
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    
+      <router-outlet></router-outlet>
+
+    <!-- s-extra
+    ================================================== -->
+    <section class="s-extra">
+
+       <app-popular-posts></app-popular-posts>
+
+        <div class="row bottom tags-wrap">
+          
+          <app-tags> </app-tags>
+          
+        </div> <!-- end tags-wrap -->
+
+    </section> <!-- end s-extra -->
+
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <app-footer></app-footer>
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <app-pre-loader></app-pre-loader>
+
+</body>

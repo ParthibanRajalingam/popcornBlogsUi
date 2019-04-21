@@ -1,0 +1,476 @@
+  <div class="masonry">
+
+                <div class="grid-sizer"></div>
+
+<!-- Start of ngFor allPosts -->
+                <div *ngFor="let post of testdata">
+
+<!-- Start of text article -->
+                    
+     <article *ngIf="post.postType=='text'" class="masonry__brick entry format-standard" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="{{post?.imageSrc}}" 
+                                     alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">{{post?.postedDate}}</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">{{post?.title}}</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                              {{post?.intro}}
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+             <!-- Start of quote article -->
+                <article *ngIf="post.postType=='quote'" class="masonry__brick entry format-quote" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <blockquote>
+                                <p> {{post?.intro}}</p>
+    
+                                <cite>{{post.quoteBy}}</cite>
+                        </blockquote>
+                    </div>   
+    
+                </article> <!-- end article -->
+  <!-- Start of video article -->
+<article *ngIf="post.postType=='video'" class="masonry__brick entry format-video" data-aos="fade-up">
+                        
+                    <div class="entry__thumb video-image">
+                        <a href="{{post?.videoLink}}" data-lity>
+                            <img src="{{post?.imageSrc}}" 
+                                   alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-video.html">{{post?.postedDate}}</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-video.html">{{post?.title}}</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                               {{post?.intro}}
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                        <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+<!-- Start of audio article -->
+                <article *ngIf="post.postType=='audio'" class="masonry__brick entry format-audio" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="{{post?.audioLink}}" class="entry__thumb-link">
+                            <img src="{{post?.imageSrc}}" 
+                                     alt="">
+                        </a>
+                        <div class="audio-wrap">
+                            <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+                        </div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-audio.html">{{post?.postedDate}}</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-audio.html">{{post?.title}}</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                {{post?.intro}}
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <!-- Start of link article -->
+
+                      <article *ngIf="post.postType=='link'" class="masonry__brick entry format-link" data-aos="fade-up">
+                    
+                    <div class="entry__thumb">
+                        <div class="link-wrap">
+                            <p>{{post?.intro}}</p>
+                            <cite>
+                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                            </cite>
+                        </div>
+                    </div>
+                    
+                </article> <!-- end article -->
+
+                
+                </div><!-- End of ngFor allPosts -->
+
+                <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <blockquote>
+                                <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
+    
+                                <cite>Dieter Rams</cite>
+                        </blockquote>
+                    </div>   
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/tulips-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 15, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">10 Interesting Facts About Caffeine.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Health</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/cookies-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">No Sugar Oatmeal Cookies.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Cooking</a>
+                                <a href="category.html">Health</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/wheel-400.jpg" 
+                                   alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">Visiting Theme Parks Improves Your Health.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="#">Health</a> 
+                                <a href="#">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-video" data-aos="fade-up">
+                        
+                    <div class="entry__thumb video-image">
+                        <a href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
+                            <img src="../assets/images/thumbs/masonry/shutterbug-400.jpg" 
+                                   alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-video.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-video.html">Key Benefits Of Family Photography.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Family</a> 
+                                <a href="category.html">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+
+
+                <article class="masonry__brick entry format-audio" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a href="single-audio.html" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/guitarman-400.jpg" 
+                                     alt="">
+                        </a>
+                        <div class="audio-wrap">
+                            <!--<audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>-->
+                        </div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="single-audio.html">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-audio.html">What Your Music Preference Says About You and Your Personality.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Music</a> 
+                                <a href="category.html">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                                <article class="masonry__brick entry format-link" data-aos="fade-up">
+                    
+                    <div class="entry__thumb">
+                        <div class="link-wrap">
+                            <p>The Only Resource You Will Need To Start a Blog Using WordPress.</p>
+                            <cite>
+                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                            </cite>
+                        </div>
+                    </div>
+                    
+                </article> <!-- end article -->
+                <article class="masonry__brick entry format-link" data-aos="fade-up">
+                    
+                    <div class="entry__thumb">
+                        <div class="link-wrap">
+                            <p>The Only Resource You Will Need To Start a Blog Using WordPress.</p>
+                            <cite>
+                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                            </cite>
+                        </div>
+                    </div>
+                    
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/jump-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">Create Meaningful Family Moments.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Family</a>
+                                <a href="category.html">Relationship</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/beetle-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">Throwback To The Good Old Days.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Lifestyle</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/fuji-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">Just Another  Standard Format Post.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Design</a> 
+                                <a href="category.html">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    <div class="entry__thumb">
+                        <a routerLink="/blogDetails" class="entry__thumb-link">
+                            <img src="../assets/images/thumbs/masonry/sydney-400.jpg" 
+                                     alt="">
+                        </a>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a routerLink="/blogDetails">December 10, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a routerLink="/blogDetails">Planning Your First Trip to Sydney.</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="category.html">Travel</a> 
+                                <a href="category.html">Vacation</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+
+            </div> <!-- end masonry -->

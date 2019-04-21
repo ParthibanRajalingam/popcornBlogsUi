@@ -1,0 +1,156 @@
+<div class="masonry">
+
+    <div class="grid-sizer"></div>
+
+    <!-- Start of ngFor allPosts -->
+    <div *ngFor="let post of testdata  | paginate: { itemsPerPage: 12, currentPage: p}" >
+
+        <!-- Start of text article -->
+
+        <article *ngIf="post.postType=='text'" class="masonry__brick entry format-standard" data-aos="fade-up">
+
+            <div class="entry__thumb">
+                <a routerLink="/blogDetails" class="entry__thumb-link">
+                    <img src="{{post?.imageSrc}}" alt="">
+                </a>
+            </div>
+
+            <div class="entry__text">
+                <div class="entry__header">
+
+                    <div class="entry__date">
+                        <a routerLink="/blogDetails" [queryParams]="{ name : post.uniqueBlogName}">{{post?.postedDate}}</a>
+                    </div>
+                    <h1 class="entry__title"><a routerLink="/blogDetails" [queryParams]="{ id: post.uniqueBlogName}">{{post?.title}}</a></h1>
+
+                </div>
+                <div class="entry__excerpt">
+                    <p>
+                        {{post?.intro | slice:0:200}}{{post?.intro.length > 20 ? '...' : ''}}
+                    </p>
+                </div>
+                <div class="entry__meta">
+                    <span class="entry__meta-links">
+                                <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                </div>
+            </div>
+
+        </article>
+        <!-- end article -->
+        <!-- Start of quote article -->
+        <article *ngIf="post.postType=='quote'" class="masonry__brick entry format-quote" data-aos="fade-up">
+
+            <div class="entry__thumb">
+                <blockquote>
+                    <p>
+                         {{post?.intro | slice:0:200}}{{post?.intro.length > 20 ? '...' : ''}}
+                         </p>
+
+                    <cite>{{post.quoteBy}}</cite>
+                </blockquote>
+            </div>
+
+        </article>
+        <!-- end article -->
+        <!-- Start of video article -->
+        <article *ngIf="post.postType=='video'" class="masonry__brick entry format-video" data-aos="fade-up">
+
+            <div class="entry__thumb video-image">
+                <a href="{{post?.videoLink}}" data-lity>
+                    <img src="{{post?.imageSrc}}" alt="">
+                </a>
+            </div>
+
+            <div class="entry__text">
+                <div class="entry__header">
+
+                    <div class="entry__date">
+                        <a href="single-video.html">{{post?.postedDate}}</a>
+                    </div>
+                    <h1 class="entry__title"><a href="single-video.html">{{post?.title}}</a></h1>
+
+                </div>
+                <div class="entry__excerpt">
+                    <p>
+                       {{post?.intro | slice:0:200}}{{post?.intro.length > 20 ? '...' : ''}}
+                    </p>
+                </div>
+                <div class="entry__meta">
+                    <span class="entry__meta-links">
+                        <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                </div>
+            </div>
+
+        </article>
+        <!-- end article -->
+
+        <!-- Start of audio article -->
+        <article *ngIf="post.postType=='audio'" class="masonry__brick entry format-audio" data-aos="fade-up">
+
+            <div class="entry__thumb">
+                <a href="{{post?.audioLink}}" class="entry__thumb-link">
+                    <img src="{{post?.imageSrc}}" alt="">
+                </a>
+                <div class="audio-wrap">
+                    <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+                </div>
+            </div>
+
+            <div class="entry__text">
+                <div class="entry__header">
+
+                    <div class="entry__date">
+                        <a href="single-audio.html">{{post?.postedDate}}</a>
+                    </div>
+                    <h1 class="entry__title"><a href="single-audio.html">{{post?.title}}</a></h1>
+
+                </div>
+                <div class="entry__excerpt">
+                    <p>
+                       {{post?.intro | slice:0:200}}{{post?.intro.length > 20 ? '...' : ''}}
+                    </p>
+                </div>
+                <div class="entry__meta">
+                    <span class="entry__meta-links">
+                                <a href="category.html" *ngFor ="let tag of post.tags">{{tag}}</a> 
+                            </span>
+                </div>
+            </div>
+
+        </article>
+        <!-- end article -->
+
+        <!-- Start of link article -->
+
+        <article *ngIf="post.postType=='ad'" class="masonry__brick entry format-link" data-aos="fade-up">
+
+            <div class="entry__thumb">
+                <div class="link-wrap">
+                    <p>
+                        {{post?.intro | slice:0:200}}{{post?.intro.length > 20 ? '...' : ''}}
+                        </p>
+                    <cite>
+                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                            </cite>
+                </div>
+            </div>
+
+        </article>
+        <!-- end article -->
+
+
+    </div>
+    <!-- End of ngFor allPosts -->
+
+</div>
+      <div class="row">
+            <div class="col-full">
+                <nav class="pgn">
+ <pagination-controls   class="pgn1"  previousLabel="Previous"
+                      nextLabel="Next" (pageChange)="p = $event" (click)="onNextClick()"></pagination-controls>
+                </nav>
+            </div>
+      </div>
+<!-- end masonry -->

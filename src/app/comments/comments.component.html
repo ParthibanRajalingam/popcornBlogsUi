@@ -1,0 +1,166 @@
+ <!-- comments
+        ================================================== -->
+        <div class="comments-wrap">
+
+            <div id="comments" class="row">
+                <div class="col-full">
+
+                    <h3 class="h2">{{comments.length}} Comments</h3>
+
+                    <!-- commentlist -->
+                    <ol *ngFor = "let comment of comments" class="commentlist">
+                                     
+                        <li *ngIf = "!comment.replies.length"  class="depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="{{comment.imageSrc}}" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                    <cite>{{comment.userName}}</cite>
+                                    <div class="comment__meta" *ngIf = "comment.commentText">
+                                        <time class="comment__time">{{comment.commentedTime}}</time>
+                                        <a class="reply" (click)="onReply(comment.commentId)" >Reply</a>
+                                    </div>
+                                     <div *ngIf = "comment.showLoginReply">
+<p> Please Sign in to leave a comment</p>
+<button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook btn--small">Facebook</button>
+ <button (click)="socialSignIn('google')"  class="loginBtn loginBtn--google btn--small">Google</button>    
+ <button (click)="onReplyCancel()" class= "btn--small">Cancel</button> 
+ </div>   
+                                </div>
+
+                                <div class="comment__text" *ngIf = "comment.commentText">
+                                <p>{{comment.commentText}}</p>
+                                </div>
+                                <!--<button type="submit" class="submit btn--primary btn--small" >Edit</button>
+                                <button type="submit" class="submit btn--small" style = "margin-left: 4px " >Delete</button>-->
+               <div *ngIf = "!comment.commentText" class="comment__text">
+                                                                <div class="respond">
+                            <fieldset>
+
+                                <div class="message form-field">
+                                    <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message" #commentArea1></textarea>
+                                </div>
+
+                                <button type="submit" class="submit btn--primary btn--medium" (click)="onPost(comment.commentId,'',commentArea1.value)">Post</button>
+                                <button type="submit" class="submit btn--medium" style = "margin-left: 4px" (click)="onCancel()">Cancel</button>
+
+                            </fieldset>
+                      
+
+                    </div> <!-- end respond -->
+                                        </div>
+                            </div>
+
+                        </li> <!-- end comment level 1 -->
+
+                        <li  *ngIf = "comment.replies.length"  class="thread-alt depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="{{comment.imageSrc}}" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                <cite>{{comment.userName}}</cite>
+
+                                <div class="comment__meta" *ngIf = "comment.commentText">
+                                    <time class="comment__time">{{comment.commentedTime}}</time>
+                                    <a class="reply" (click)="onReply(comment.commentId)">Reply</a>
+                                </div>
+                                 <div *ngIf = "comment.showLoginReply">
+<p> Please Sign in to leave a comment</p>
+<button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook btn--small">Facebook</button>
+ <button (click)="socialSignIn('google')"  class="loginBtn loginBtn--google btn--small">Google</button>    
+ <button (click)="onReplyCancel()" class= "btn--small">Cancel</button> 
+ </div>   
+                                </div>
+
+                                <div class="comment__text">
+                                <p>{{comment.commentText}}</p>
+                                </div>
+
+                            </div>
+
+                            <ul *ngFor = "let reply of comment.replies" class="children">
+
+                                <li class="depth-2 comment">
+
+                                    <div class="comment__avatar">
+                                        <img width="50" height="50" class="avatar" src="{{reply.imageSrc}}" alt="">
+                                    </div>
+
+                                    <div class="comment__content">
+
+                                        <div class="comment__info">
+                                            <cite>{{reply.userName}}</cite>
+
+                                            <div class="comment__meta" *ngIf = "reply.commentText">
+                                                <time class="comment__time">{{reply.commentedTime}}</time>
+                                                <a class="reply" (click)="onReply(comment.commentId,reply.commentId)">Reply</a>
+                                            </div>
+                                             <div *ngIf = "reply.showLoginReply">
+<p> Please Sign in to leave a comment</p>
+<button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook btn--small">Facebook</button>
+ <button (click)="socialSignIn('google')"  class="loginBtn loginBtn--google btn--small">Google</button>    
+ <button (click)="onReplyCancel()" class= "btn--small">Cancel</button> 
+ </div>   
+                                        </div>
+
+                                        <div *ngIf = "reply.commentText" class="comment__text">
+                                            <p>{{reply.commentText}}</p>
+                                        </div>
+
+                                           <div *ngIf = "!reply.commentText" class="comment__text">
+                                                                <div class="respond">
+                            <fieldset>
+
+                                <div class="message form-field">
+                                    <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message" #commentArea></textarea>
+                                </div>
+
+                                <button type="submit" class="submit btn--primary btn--medium" (click)="onPost(comment.commentId,reply.commentId,commentArea.value)">Post</button>
+                                <button type="submit" class="submit btn--medium" style = "margin-left: 4px " (click)="onCancel()">Cancel</button>
+
+                            </fieldset>
+                      
+
+                    </div> <!-- end respond -->
+                                        </div>
+
+                                    </div>
+
+
+
+                                </li>
+
+                            </ul>
+
+                            
+     
+
+                        </li> <!-- end comment level 1 -->
+     
+                    </ol> <!-- end commentlist -->
+
+ <button type="submit" class="submit btn--primary btn--medium" *ngIf="!addCommentClicked" style = "margin-left: 1%" (click)="onAddComment()">Comment </button>
+ <div *ngIf ="name"><button (click)="onSignOut()" class= "btn--small" style = "margin-left: 1%">Sign Out</button> Signed in as {{name}}
+   </div>
+ <br>
+ <div *ngIf = "showLogin">
+<p> Please Sign in to leave a comment</p>
+<button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook btn--small">Facebook</button>
+ <button (click)="socialSignIn('google')"  class="loginBtn loginBtn--google btn--small">Google</button>    
+ <button (click)="onCancel()" class= "btn--small">Cancel</button> 
+ </div>      
+                    <!-- respond
+                    ================================================== -->
+
+                </div> <!-- end col-full -->
+
+            </div> <!-- end row comments -->
+        </div> <!-- end comments-wrap -->

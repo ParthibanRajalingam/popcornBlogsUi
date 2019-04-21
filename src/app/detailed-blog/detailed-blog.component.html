@@ -1,0 +1,113 @@
+<app-category-header></app-category-header>
+  <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--narrow s-content--no-padding-bottom">
+
+        <article class="row format-standard">
+
+            <div class="s-content__header col-full">
+                <h1 class="s-content__header-title">
+                    {{detailedPost.title}}
+                </h1>
+                <ul class="s-content__header-meta">
+                    <li class="date">{{detailedPost.postedDate}}</li>
+                    <li class="cat">
+                        In
+                        <a *ngFor = "let category of detailedPost.categories" href="#0">{{category}}</a>
+                    </li>
+                </ul>
+            </div> <!-- end s-content__header -->
+    
+            <div class="s-content__media col-full">
+                <div class="s-content__post-thumb">
+                    <img src="{{detailedPost.imageSrc}}"   class="titleImage" alt="" >
+                </div>
+            </div> <!-- end s-content__media -->
+
+            <div class="col-full s-content__main">
+                <div *ngFor = "let para of detailedPost.contents">
+
+                <p *ngIf = "para.type == 'leadPara'" class="lead"> {{para.content}} </p>
+
+                <h2 *ngIf = "para.type == 'h2Heading'">{{para.content}} </h2>
+
+                <p *ngIf = "para.type == 'descImage'">
+                <img src="{{para.content}}" 
+                    class="contentImage" alt="">
+                </p>
+                
+                <p *ngIf = "para.type == 'simplePara'"> {{para.content}}
+                </p>
+
+                <blockquote *ngIf = "para.type == 'quotePara'"><p>{{para.content}}</p></blockquote>
+
+                <h3 *ngIf = "para.type == 'h3Heading'">{{para.content}}</h3>
+
+<div *ngIf = "para.type == 'codePara'">
+                <p >{{para.content}}</p>
+
+<pre><code> {{para.code}}
+</code></pre>
+</div>
+
+               
+
+                <ul *ngIf = "para.type == 'listPara'">
+                    <li *ngFor = "let list of para.content">{{list}} </li>
+ 
+                </ul>
+                </div>  <!-- end *ngFor -->
+                <p class="s-content__tags">
+                    <span>Post Tags</span>
+
+                    <span class="s-content__tag-list">
+                        <a href="#0" *ngFor = "let tag of detailedPost.tags">{{tag}}</a>
+                    </span>
+                </p> <!-- end s-content__tags -->
+
+                <div class="s-content__author">
+                    <img src="{{detailedPost.authorImage}}" alt="">
+
+                    <div class="s-content__author-about">
+                        <h4 class="s-content__author-name">
+                            <a href="#0">{{detailedPost.authorName}}</a>
+                        </h4>
+                    
+                        <p>{{detailedPost.aboutAuthor}}
+                        </p>
+
+                        <ul class="s-content__author-social">
+                           <li><a href="#0">Facebook</a></li>
+                           <li><a href="#0">Twitter</a></li>
+                           <li><a href="#0">GooglePlus</a></li>
+                           <li><a href="#0">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="s-content__pagenav">
+                    <div class="s-content__nav">
+                        <div class="s-content__prev">
+                            <a href="#0" rel="prev">
+                                <span>Previous Post</span>
+                                {{detailedPost.previousPost}} 
+                            </a>
+                        </div>
+                        <div class="s-content__next">
+                            <a href="#0" rel="next">
+                                <span>Next Post</span>
+                                {{detailedPost.nextPost}}
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- end s-content__pagenav -->
+
+            </div> <!-- end s-content__main -->
+
+        </article>
+
+
+       <app-comments [comments] = "comments" ></app-comments>
+
+    </section> <!-- s-content -->
+    <app-loader *ngIf="loading"></app-loader>
